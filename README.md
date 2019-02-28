@@ -1,2 +1,2 @@
 # nytimesapi
-test for group project.
+test for group project forking between wednesdays group! :)
