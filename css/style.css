@@ -1,0 +1,15 @@
+.jumbotron {
+    background-color: blue;
+  }
+  #search-form-outsidebox {
+    border: dotted 0.5px;
+    padding: 10px;
+  }
+  #top-articles-box {
+    border: dotted 0.5px;
+    padding: 10px;
+  }
+  /*need to set up placeholder styling for incoming AJAX RESPONSE
+  SUCH AS ARTICLE OUTER DIV STYLING
+  ARTICLE TITLE STYLING 
+  ARTICLE VARIOUS INFO STYLING*/
