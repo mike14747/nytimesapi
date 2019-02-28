@@ -7,51 +7,34 @@ $(document).ready(function () {
     var numRecords = "";
     var startDate = "";
     var endDate = "";
-    var shorthand = "response.docs";
     var queryURL = "";
 
     $("#search-button").on("click", function () {
         searchTerm = $("#search-term").val();
-        searchTerm = "baseball";
         numRecords = $("#recordsToRetrieve").val();
         startDate = $("#start-year").val() + "0101";
         endDate = $("#end-year").val() + "0227";
-        startDate = "20190101";
-        endDate = "20190228";
         queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + searchTerm + "&begin_date=" + startDate + "&end_date=" + endDate + "&api-key=" + APIKey;
-        // queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + searchTerm + "&api-key=" + APIKey;
-        // queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=WfDOk3J8YKZ73khHDWso9JoLYFFyNwkr";
+
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).then(function (response) {
-    
-            // console.log(JSON.stringify(response));
-    
-            // $("#article-Placement").append("<p>" + JSON.stringify(response) + "</p>");
+        }).then(function(response) {
 
             var r = response.response.docs;
-            // var r = response.response.docs[0].web_url;
-            // console.log(r);
+            // var r = response.response.docs[0].headline.main;
+            
+            console.log(r);
             for (var i = 0; i < r.length; i++) {
-                // $("#article-Placement").append("<p>" + r + "[" + i + "]." + web_url + "</p>");
-                console.log(r + "[" + i + "].web_url");
+                $("#article-Placement").append("<div class='row'><div class='col-8'><a href='" + r[i].web_url + "' target='_blank'>" + r[i].headline.main + "</a></div><div class='col-4'>" + r[i].pub_date + "</div></div></p>");
+                // $("#article-Placement").append("<p>" + r[i].headline.main + "</p>");
+                // console.log(r + "[" + i + "].headline.main");
+                console.log(r[i].headline.main);
             }
 
-            // response.headline.main
-            // response.pub_date
-            // response.web_url
+            // headline.main, pub_date, web_url
     
         });
     });
-
-    /*
-    $("#clear-results-button").on("click", function () {
-        $("#search-term").val("");
-        $("#recordsToRetrieve").val("");
-        $("#start-year").val("");
-        $("#end-year").val("");
-    });
-    */
 
 });
