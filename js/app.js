@@ -8,14 +8,11 @@ $(document).ready(function () {
     var startDate = "";
     var endDate = "";
     var queryURL = "";
-    var newDate = "";
 
     $("#search-button").on("click", function () {
         $("#article-Placement").text("");
         searchTerm = $("#search-term").val().trim();
         numRecords = $("#recordsToRetrieve").val().trim();
-        // startDate = $("#start-year").val().trim() + "0101";
-        // endDate = $("#end-year").val().trim() + "0228";
         if ($("#start-year").val().trim() == "") {
             startDate = "20190101";
         } else {
@@ -32,15 +29,10 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(function(response) {
-
             var r = response.response.docs;
-
             for (var i = 0; i < numRecords; i++) {
                 $("#article-Placement").append("<div class='row border-bottom mb-3'><div class='col-8 border-left p-2'><a href='" + r[i].web_url + "' target='_blank'>" + r[i].headline.main + "</a></div><div class='col-4'>" + r[i].pub_date + "</div></div>");
             }
-
-            // headline.main, pub_date, web_url
-    
         });
     });
 
