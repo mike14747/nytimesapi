@@ -11,6 +11,7 @@ $(document).ready(function () {
     var newDate = "";
 
     $("#search-button").on("click", function () {
+        $("#article-Placement").text("");
         searchTerm = $("#search-term").val().trim();
         numRecords = $("#recordsToRetrieve").val().trim();
         // startDate = $("#start-year").val().trim() + "0101";
