@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    // "use strict";
+    "use strict";
 
     var APIKey = "WfDOk3J8YKZ73khHDWso9JoLYFFyNwkr";
 
