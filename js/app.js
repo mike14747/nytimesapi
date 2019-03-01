@@ -24,12 +24,11 @@ $(document).ready(function () {
     var today = yyyy + mm + dd;
 
     $("#search-button").on("click", function () {
-        $("#article-Placement").text("");
         searchTerm = $("#search-term").val().trim();
         if ($("#search-term").val().trim() == "") {
             $("#searchTermError").text(" This field cannot be left blank.");
-            $("#top-articles-box").hide();
         } else {
+            $("#article-Placement").text("");
             $("#searchTermError").text("");
             numRecords = $("#recordsToRetrieve").val().trim();
             if ($("#start-year").val().trim() == "") {
